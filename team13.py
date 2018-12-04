@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
+import random
+# -*- coding: utf-8 -*-
 ####
 # Each team's file must define four tokens:
 #     team_name: a string
@@ -8,16 +11,24 @@
 ####
 
 team_name = 'carry me big brother' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
+strategy_name = 'Prisoner Delemma'
+strategy_description = 'Decide betray or collude'
     
 def move(my_history, their_history, my_score, their_score):
-    ''' Arguments accepted: my_history, their_history are strings.
-    my_score, their_score are ints.
-    
-    Make my move.
-    Returns 'c' or 'b'. 
-    '''
+    my_answer=0
+    if len(my_history) == 0:
+        return 'b'
+    elif their_history[-1]=='c':
+        if my_history[-1]=='c'  :
+            my_answer += 'b'*2
+        else:
+            my_answer += str('b')
+        return random.choice(my_history)
+    elif 'c' == their_history[-1]:
+        my_answer += 'c'
+ 
+
+        
 
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
     # their_history: a string of the same length as history, possibly empty. 
@@ -54,7 +65,7 @@ if __name__ == '__main__':
               my_score=0,
               their_score=0,
               result='b'):
-         print 'Test passed'
+        print ('Test passed')
      # Test 2: Continue betraying if they collude despite being betrayed.
     test_move(my_history='bbb',
               their_history='ccc', 
