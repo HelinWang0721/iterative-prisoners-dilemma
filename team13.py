@@ -15,14 +15,14 @@ strategy_name = 'Prisoner Delemma'
 strategy_description = 'Decide betray or collude'
     
 def move(my_history, their_history, my_score, their_score):
-    my_answer=0
+    my_answer = ['c','b']
     if len(my_history) == 0:
         return 'b'
     elif their_history[-1]=='c':
         if my_history[-1]=='c'  :
             my_answer += 'b'*2
         else:
-            my_answer += ('b')
+            my_answer += 'b'
         return random.choice(my_history)
     elif 'c' == their_history[-1]:
         my_answer += 'c'
@@ -38,7 +38,6 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
-    return 'c'
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
