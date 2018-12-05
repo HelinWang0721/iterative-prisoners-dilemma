@@ -22,7 +22,7 @@ def move(my_history, their_history, my_score, their_score):
         if my_history[-1]=='c'  :
             my_answer += 'b'*2
         else:
-            my_answer += str('b')
+            my_answer += ('b')
         return random.choice(my_history)
     elif 'c' == their_history[-1]:
         my_answer += 'c'
