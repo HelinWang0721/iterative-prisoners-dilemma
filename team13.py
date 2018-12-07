@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-import random
 # -*- coding: utf-8 -*-
 ####
 # Each team's file must define four tokens:
@@ -11,21 +10,26 @@ import random
 ####
 
 team_name = 'carry me big brother' # Only 10 chars displayed.
-strategy_name = 'Prisoner Delemma'
-strategy_description = 'Decide betray or collude'
-    
-def move(my_history, their_history, my_score, their_score):
-    my_answer = ['c','b']
+strategy_name = 'probability'
+strategy_description = 'As long as being betrayed, the rate of betray will increase. As long as , the rate of betray will increase'
+
+
+def move(my_history, their_history, my_score, their_score): 
     if len(my_history) == 0:
+        return 'b'  
+    my_b = 0
+    their_b = 0  
+    for index in range(len(my_history)-1):
+        if my_history[index] == 'b':
+                my_b += 1
+        if their_history[index] == 'b':
+                their_history += 1
+    if (my_b > their_b):
+        return 'c'
+    else:
         return 'b'
-    elif their_history[-1]=='c':
-        if my_history[-1]=='c'  :
-            my_answer += 'b'*2
-        else:
-            my_answer += 'b'
-        return random.choice(my_history)
-    elif 'c' == their_history[-1]:
-        my_answer += 'c'
+        
+        
  
 
         
