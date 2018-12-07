@@ -11,7 +11,7 @@ from __future__ import print_function
 
 team_name = 'carry me big brother' # Only 10 chars displayed.
 strategy_name = 'probability'
-strategy_description = 'As long as being betrayed, the rate of betray will increase. As long as , the rate of betray will increase'
+strategy_description = 'compare 'b' in both history then decide next action is 'b' or 'c''
 
 
 def move(my_history, their_history, my_score, their_score): 
